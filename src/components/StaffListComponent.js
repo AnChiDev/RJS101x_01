@@ -22,8 +22,19 @@ class StaffList extends Component {
                 return(
                     <Card>
                         <CardBody>
-                          <CardTitle>{staff.name}</CardTitle>
-                          <CardText>{staff.description}</CardText>
+                        <CardTitle tag="h5">Họ và tên:{staff.name}</CardTitle>
+
+                        {/* Format date to more easy-to-read date format */}
+                        <CardText>
+                            Ngày sinh: {dateFormat(staff.doB, "dd/mm/yyyy")}
+                        </CardText>
+                        <CardText>
+                            Ngày vào công ty: {dateFormat(staff.startDate, "dd/mm/yyyy")}
+                        </CardText>
+
+                        <CardText>Phòng ban: {staff.department.name}</CardText>
+                        <CardText>Số ngày nghỉ còn lại: {staff.annualLeave}</CardText>
+                        <CardText>Số ngày đã làm thêm: {staff.overTime}</CardText>
                         </CardBody>
                     </Card>
                 );
