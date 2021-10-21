@@ -49,7 +49,7 @@ class StaffList extends Component {
                 return (
                   <div  className="col-12 col-md-5 mt-4">
                     <Card key={staff.id}
-                      onClick={() => this.onStaffSelect(staff)}>
+                      onClick={() => this.onStaffSelected(staff)}>
                      
                           <Button>{staff.name}</Button>
                           
