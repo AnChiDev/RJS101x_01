@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Col, Row, ModalBody, Modal, Label, Button, ModalHeader } from 'reactstrap';
 
+
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -33,7 +34,7 @@ class CommentForm extends Component{
               Submit comment
             </ModalHeader>
             <ModalBody>
-              <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                 <Row className="form-group">
                   <Label htmlFor="rating" md={2}>
                     Rating
