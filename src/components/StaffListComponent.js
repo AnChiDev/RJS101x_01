@@ -13,14 +13,16 @@ class StaffList extends Component {
             }
         }
     
-        onStaffSelected(staff) {
+        onSelectedStaff(staff) {
             this.setState({ selectedStaff: staff});
         }
-    
-        renderStaff(staff) {
+        onResetState() {
+            this.setState({selectedStaff: null});
+        }
+        renderSelectedStaff(staff) {
             if (staff != null)
                 return(
-                    <Card>
+                    <Card className="col-12">
                         <CardBody>
                         <CardTitle tag="h5">Họ và tên:{staff.name}</CardTitle>
 
@@ -47,14 +49,10 @@ class StaffList extends Component {
         render() {
             const menu = this.props.staffs.map((staff) => {
                 return (
-                  <div  className="col-12 col-md-5 mt-4">
-                    <Card key={staff.id}
-                      onClick={() => this.onStaffSelected(staff)}>
-                     
+                  <Card key={staff.id} className={this.props.numbercols} onClick={() => this.onSelectedStaff(staff)}>
                           <Button>{staff.name}</Button>
-                          
-                    </Card>
-                  </div>
+                   </Card>
+                  
                 );
             });
     
@@ -64,9 +62,7 @@ class StaffList extends Component {
                         {menu}
                     </div>
                     <div className="row">
-                      <div  className="col-12 col-md-5 m-1">
-                        {this.renderStaff(this.state.selectedStaff)}
-                      </div>
+                        {this.renderSelectedStaff(this.state.selectedStaff)}
                     </div>
                 </div>
             );
