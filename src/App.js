@@ -4,6 +4,7 @@ import './App.css';
 import { STAFFS } from './shared/staffs';
 import StaffList from './components/StaffListComponent';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import { NUMBERCOLS } from './shared/numbercols';
 
 var col = 0;
@@ -35,12 +36,14 @@ class App extends Component {
                       <option value={6}>6 cột</option>
                     </select>      
               <StaffList staffs={this.state.staffs} numbercols={this.state.numbercols} />
+              <h5>Bấm vào tên nhân viên để xem thông tin. </h5>
               </div>
-              <div className ="textfotter">
-                <h5>Bấm vào tên nhân viên để xem thông tin. </h5>
-              </div>
+             
+             
+              
+          
             </div>
-         
+            <Footer/>
         </div>
       )
   }
