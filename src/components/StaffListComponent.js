@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { Card,  Button, CardText, CardBody,
-    CardTitle } from 'reactstrap';
+import { Card,  Button, CardText, CardBody, CardImg, CardTitle } from 'reactstrap';
 import dateFormat from "dateformat";
 
 class StaffList extends Component {
@@ -49,7 +48,8 @@ class StaffList extends Component {
         render() {
             const menu = this.props.staffs.map((staff) => {
                 return (
-                  <Card key={staff.id} className={this.props.numbercols} onClick={() => this.onSelectedStaff(staff)}>
+                  <Card key={staff.id} className="col-2" onClick={() => this.onSelectedStaff(staff)}>
+                  <CardImg top src={staff.image} alt={staff.name}/>
                           <Button>{staff.name}</Button>
                    </Card>
                   

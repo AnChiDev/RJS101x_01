@@ -1,13 +1,51 @@
-import React from 'react';
-import { Navbar, NavbarBrand } from 'reactstrap';
+import React, { Component } from 'react';
+import { Nav, Navbar, NavbarToggler, Collapse, NavItem} from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
-function Header() {
+
+class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleNav = this.toggleNav.bind(this);
+    this.state = {
+      isNavOpen: false
+    };
+  }
+
+  toggleNav() {
+    this.setState({
+      isNavOpen: !this.state.isNavOpen
+    });
+  }
+
+  render(){
       return (
-          <Navbar className ="navbar" dark color="primary">
-            <div className="container">
-              <NavbarBrand href="/">Ứng dụng quản lý nhân sự v1.0</NavbarBrand>
-            </div>
-          </Navbar>
-      )
+        <div className="header">                
+        <Navbar dark expand="md" className="container">
+            <NavbarToggler onClick={this.toggleNav} />
+            <Collapse isOpen={this.state.isNavOpen} navbar>
+                <Nav navbar>
+                    <NavItem>
+                        <NavLink className="nav-link" to="/stafflish">
+                            <span className="fa fa-users fa-lg"></span> Nhân Viên
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="nav-link" to="/room">
+                            <span className="fa fa-building fa-lg"></span> Phòng Ban
+                        </NavLink>
+                    </NavItem>
+                    <NavItem>
+                        <NavLink className="nav-link" to="/salary">
+                            <span className="fa fa-medium fa-lg"></span> Bảng Lương
+                        </NavLink>
+                    </NavItem>
+                </Nav>
+            </Collapse>
+        </Navbar>
+    </div>
+      );
     }
+  }
   export default Header;
