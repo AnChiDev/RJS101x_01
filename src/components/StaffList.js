@@ -21,7 +21,7 @@ function RenderMenuItem ({staff}) {
 
         const menu = props.staffs.map((staff) => {
             return (
-                <div className="col-12 col-md-4 col-lg-2"  key={staff.id}>
+                <div className="col-6 col-md-4 col-lg-2"  key={staff.id}>
                     <RenderMenuItem staff={staff} />
                 </div>
             );
