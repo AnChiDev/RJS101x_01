@@ -1,38 +1,55 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { STAFFS } from '../shared/staffs';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
+import { DEPARTMENTS, STAFFS } from '../shared/staffs';
 import StaffList from './StaffListComponent';
+import StaffInfo from './StaffInfo';
 import Header from './Header';
 import Footer from './Footer';
+import Room from './Room';
+import Salary from './salary';
+import { Switch, Route } from 'react-router-dom';
 
-
-var col = 0;
 class Main extends Component {
   constructor(props){
     super(props);
 
     this.state = {
       staffs : STAFFS,
-      
-      }
+      department:DEPARTMENTS,
+      staffSelected: null,
+      };
   }
-    onSelectedCol(){
-      col = document.getElementById('number').value;
-    
-    }
-
+  onStaffSelected(staffId){
+    this.setState({staffSelected:staffId});
+  }
     render(){
+      const StaffWithId = ({match})=>{
+        return(
+          <StaffInfo
+          staffSelected={
+            this.state.staffs.filter(
+              (staff) => staff.id === parseInt(match.params.id, 10)
+            )[0]
+          }
+          department={this.state.departments}
+        />
+      );
+    };
       return (
-          <div  className="App">
-            <Header />
-            <div className ="container">
-            <h3>Nhân viên</h3>
-            <StaffList staffs={this.state.staffs}  />
-            <h5>Bấm vào tên nhân viên để xem thông tin. </h5>
-            </div>
-            <Footer/>
-        </div>
-      )
+      <div>
+        <Header />
+        <Switch>
+        
+          <Route exact path="/StaffList" component={() => <StaffList  staffs={this.state.staffs} />} />
+          <Route path='/StaffInfo/:staffId' component={StaffWithId} />
+          <Route exact path='/Room' component={() => <Room rooms={this.state.departments} />} />
+          <Route exact path='/salary' component={() => <Salary staffs={this.state.staffs}/>} /> 
+          
+        </Switch>
+        <Footer /> 
+      </div>
+    );
   }
 }
 

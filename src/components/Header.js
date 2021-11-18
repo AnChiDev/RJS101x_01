@@ -26,13 +26,18 @@ class Header extends Component {
             <NavbarToggler onClick={this.toggleNav} />
             <Collapse isOpen={this.state.isNavOpen} navbar>
                 <Nav navbar>
+                <NavItem>
+                        <NavLink className="nav-link" to="/Home">
+                            <span className="fa fa-users fa-lg"></span> Home
+                        </NavLink>
+                    </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link" to="/stafflish">
+                        <NavLink className="nav-link" to="/StaffListComponent">
                             <span className="fa fa-users fa-lg"></span> Nhân Viên
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink className="nav-link" to="/room">
+                        <NavLink className="nav-link" to="/Room">
                             <span className="fa fa-building fa-lg"></span> Phòng Ban
                         </NavLink>
                     </NavItem>
