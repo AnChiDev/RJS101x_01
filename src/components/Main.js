@@ -46,7 +46,7 @@ class Main extends Component {
           />} />
           <Route path='/menu/:staffId' component={StaffWithId} />
           <Route exact path='/room' component={() => <Room rooms={this.state.departments} />} />
-          <Route exact path='/salary' component={() => <Salary staffs={this.state.staffs}/>} /> 
+          <Route exact path='/salary' component={() => <Salary salary={this.state.staffs}/>} /> 
         </Switch>
         <Footer /> 
       </div>
