@@ -17,7 +17,7 @@ const Room =(props)=>{
         <div className="container">
             <div className="row">
                 <Breadcrumb>
-                    <BreadcrumbItem><Link to ="/home">Home</Link></BreadcrumbItem>
+                    <BreadcrumbItem><Link to ="/StaffList">Home</Link></BreadcrumbItem>
                 </Breadcrumb>
                 <div className ="col-12">
                     <h5>Phòng Ban</h5>

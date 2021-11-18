@@ -1,44 +1,45 @@
 import React from 'react';
 import { Card, CardImg,
-    CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+    CardTitle } from 'reactstrap';
 import {Link} from 'react-router-dom';
 
-function RenderMenuItem ({staff, onClick}) {
+function RenderMenuItem ({staff}) {
     return (
-        <Card>
+        <div>
+        <Card >
             <Link to={`/menu/${staff.id}`} >
                 <CardImg width="100%" src={staff.image} alt={staff.name} />
              
-                    <CardTitle>{staff.name}</CardTitle>
+                <CardTitle className="text-center text-dark">{staff.name}</CardTitle>
                
             </Link>
         </Card>
+        </div>
     );
 }
     const StaffList = (props) => {
 
         const menu = props.staffs.map((staff) => {
             return (
-                <div className="col-12 col-md-5 m-1"  key={staff.id}>
-                    <RenderMenuItem dish={staff} />
+                <div className="col-12 col-md-4 col-lg-2"  key={staff.id}>
+                    <RenderMenuItem staff={staff} />
                 </div>
             );
         });
 
         return (
-            <div >
+            <div className ="container" >
                 <div className="row">
-                    <Breadcrumb>
-                        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
-                    </Breadcrumb>
-                    <div className="col-12">
+                    <div className="col-12 mt-2 mb-2">
                         <h3>Danh sách nhân viên</h3>
-                        <hr />
                     </div>                
                 </div>
                 <div className="row">
                     {menu}
                 </div>
+                <div className =" mt-2 mb-2">
+                 <h6> Bấm vào tên nhân viên để xem thông tin.</h6>
+             </div>
             </div>
         );
     }

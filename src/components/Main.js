@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import { DEPARTMENTS, STAFFS } from '../shared/staffs';
-import StaffList from './StaffListComponent';
+import StaffList from './StaffList';
 import StaffInfo from './StaffInfo';
 import Header from './Header';
 import Footer from './Footer';
@@ -40,12 +40,10 @@ class Main extends Component {
       <div>
         <Header />
         <Switch>
-        
           <Route exact path="/StaffList" component={() => <StaffList  staffs={this.state.staffs} />} />
-          <Route path='/StaffInfo/:staffId' component={StaffWithId} />
-          <Route exact path='/Room' component={() => <Room rooms={this.state.departments} />} />
+          <Route path='/menu/:staffId' component={StaffWithId} />
+          <Route exact path='/room' component={() => <Room rooms={this.state.departments} />} />
           <Route exact path='/salary' component={() => <Salary staffs={this.state.staffs}/>} /> 
-          
         </Switch>
         <Footer /> 
       </div>

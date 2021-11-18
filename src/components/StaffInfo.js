@@ -31,7 +31,7 @@ const renderStaff = (staff)=>{
             <div className="container">
                 <div className="row">
                     <Breadcrumb>
-                        <BreadcrumbItem><Link to="/stafflist">Nhan Vien</Link></BreadcrumbItem>
+                        <BreadcrumbItem><Link to="/StaffList">Nhan Vien</Link></BreadcrumbItem>
                     </Breadcrumb>
                 </div>
                 <div className="row">
