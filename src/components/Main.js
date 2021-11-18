@@ -16,7 +16,7 @@ class Main extends Component {
 
     this.state = {
       staffs : STAFFS,
-      department:DEPARTMENTS,
+      departments : DEPARTMENTS,
       staffSelected: null,
       };
   }
@@ -40,7 +40,10 @@ class Main extends Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path="/StaffList" component={() => <StaffList  staffs={this.state.staffs} />} />
+          <Route exact path="/StaffList" component={() => <StaffList staffs={this.state.staffs} 
+          departments={this.state.departments}
+          onClick={(staffId) => this.onStaffSelected(staffId)}
+          />} />
           <Route path='/menu/:staffId' component={StaffWithId} />
           <Route exact path='/room' component={() => <Room rooms={this.state.departments} />} />
           <Route exact path='/salary' component={() => <Salary staffs={this.state.staffs}/>} /> 

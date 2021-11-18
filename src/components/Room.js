@@ -1,17 +1,19 @@
-import React from "react";
+import React from 'react';
+import { DEPARTMENTS} from '../shared/staffs';
 import {Link} from 'react-router-dom';
-import {Card, CardText,BreadcrumbItem, Breadcrumb } from "reactstrap";
+import {Card, CardTitle, CardText,BreadcrumbItem, Breadcrumb } from 'reactstrap';
 
-const Room =(props)=>{
-    const rooms = props.rooms.map((room)=>{
+
+const Room = (props) => {
+    const rooms = props.rooms.map((room) => {
         return(
-            <div key ={room.id} className ="col-12">
-                <Card>
-                    <CardText>{room.name}</CardText>
-                    <CardText>Số lượng nhân viên: {room.numberOfStaff}</CardText>
-                </Card>
-            </div>
-        );
+            <div key={room.id} className="col col-12 col-md-6 col-lg-4 mb-3">
+            <Card tag="li" className="mt-2 p-1">
+              <CardTitle>{room.name}</CardTitle>
+              <CardText>Số lượng nhân viên: {room.numberOfStaff} </CardText>
+            </Card>
+          </div>
+      );
     });
     return(
         <div className="container">
@@ -21,7 +23,6 @@ const Room =(props)=>{
                 </Breadcrumb>
                 <div className ="col-12">
                     <h5>Phòng Ban</h5>
-                    <hr/>
                 </div>
             </div>
                 <div className="row">
