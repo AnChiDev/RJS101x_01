@@ -8,7 +8,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Room from './Room';
 import Salary from './salary';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 class Main extends Component {
   constructor(props){
@@ -16,40 +16,40 @@ class Main extends Component {
 
     this.state = {
       staffs : STAFFS,
-      departments : DEPARTMENTS,
+      departments : DEPARTMENTS, 
       staffSelected: null,
       };
   }
-  onStaffSelected(staffId){
-    this.setState({staffSelected:staffId});
+  onStaffSelected(staffId) {
+    this.setState({ staffSelected: staffId });
   }
     render(){
       const StaffWithId = ({match})=>{
         return(
           <StaffInfo
-          staffSelected={
-            this.state.staffs.filter(
-              (staff) => staff.id === parseInt(match.params.id, 10)
-            )[0]
-          }
-          department={this.state.departments}
-        />
+           staffSelected ={ this.state.staffs.filter((staff) => staff.id === parseInt(match.params.staffId, 10))[0]}
+           department={this.state.departments}
+           />
       );
-    };
+    }
       return (
+        <BrowserRouter>
       <div>
         <Header />
         <Switch>
-          <Route exact path="/StaffList" component={() => <StaffList staffs={this.state.staffs} 
-          departments={this.state.departments}
-          onClick={(staffId) => this.onStaffSelected(staffId)}
-          />} />
-          <Route path='/menu/:staffId' component={StaffWithId} />
+          <Route exact path="/StaffList" component={() =>  (<StaffList
+                  staffs={this.state.staffs}
+                  departments={this.state.departments}
+                  onClick={(staffId) => this.onStaffSelected(staffId)}
+                /> )}
+            />
+          <Route path="/menu/:staffId" component={StaffWithId} />
           <Route exact path='/room' component={() => <Room rooms={this.state.departments} />} />
           <Route exact path='/salary' component={() => <Salary salary={this.state.staffs}/>} /> 
         </Switch>
         <Footer /> 
       </div>
+      </BrowserRouter>
     );
   }
 }
