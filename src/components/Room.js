@@ -16,17 +16,13 @@ const Room = (props) => {
     });
     return(
         <div className="container">
-            <div className="row">
-                <Breadcrumb>
-                    <BreadcrumbItem><Link to ="/StaffList">Home</Link></BreadcrumbItem>
-                </Breadcrumb>
-                <div className ="col-12">
-                    <h5>Phòng Ban</h5>
-                </div>
+            <Breadcrumb className ="m-1">
+                <BreadcrumbItem><Link to ="/StaffList">Home</Link></BreadcrumbItem>
+            </Breadcrumb>
+            <h5 >Phòng Ban</h5>
+            <div className ="row mt-4 mb-5">
+            {rooms}
             </div>
-                <div className="row">
-                    {rooms}
-                </div>  
         </div>
     );
 }
