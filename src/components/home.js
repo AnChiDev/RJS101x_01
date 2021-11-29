@@ -29,8 +29,10 @@ function Home (){
             <h6>Bảng lương: </h6>
             <p>Hiển thị bảng lương của tất cả các nhân viên. .</p>
             <img src="assets/images/tabsalary.png" alt=" DS lương NV" width ="70%" />
+            <br/>
+            <p>Ngoài ra, có thể sắp xếp mức lương nhân viên từ cao đến thấp hoặc ngược lại:</p>
+            <img src="assets/images/sortsalary.png" alt=" DS lương NV" width ="70%" />
             <br/><br/>
-
             <p>Các tính năng khác của ứng dụng sẽ tiếp tục được cập nhật trong thời gian tới.</p>
    
 </div>
