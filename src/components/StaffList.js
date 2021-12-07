@@ -21,7 +21,6 @@ const StaffList = ({ staffs, updateState }) => {
   const [Name, setName] = useState("");
   const [Search, setSearch] = useState("");
 
-
   {/*Thực hiện tìm kiếm NV */ }
   const handleSearch = (event, Name) => {
     event.preventDefault();
@@ -48,19 +47,7 @@ const StaffList = ({ staffs, updateState }) => {
     setSearch(X);
     Name.value = "";
   };
-  {/**state new staff */ }
-  const [modalOpen, setModalOpen] = useState(false);
-  const [New, setNew] = useState({
-    name: "",
-    doB: "",
-    startDate: "",
-    department: "Sales",
-    salaryScale: "1",
-    annualLeave: "",
-    overTime: "",
-  });
-
-
+ 
   return (
     <div className="container" >
       {/**Hiển thị danh sách nv lên màn hình */}

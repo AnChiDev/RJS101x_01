@@ -18,14 +18,15 @@ class AddStaff extends Component {
         }
         this.isToggleModal = this.isToggleModal.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);      
+        this.handleInputChange = this.handleInputChange.bind(this);          
     }
     isToggleModal() {
         this.setState({isToggleModal: !this.state.isToggleModal})
     }
 
     handleInputChange(event) {
-        const value = event.target.value;
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = event.target.name;
 
         this.setState({
@@ -33,6 +34,8 @@ class AddStaff extends Component {
         });
     }
     handleSubmit(event) {
+        console.log('Current State is: ' + JSON.stringify(this.state));
+        alert('Current State is: ' + JSON.stringify(this.state));
         event.preventDefault();
     }
     render() {
