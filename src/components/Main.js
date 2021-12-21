@@ -9,8 +9,15 @@ import Header from './Header';
 import Footer from './Footer';
 import Room from './Room';
 import Salary from './salary';
-import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
+import { Switch, Route, BrowserRouter, Redirect, withRouter  } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+const mapStateToProps = state => {
+  return {
+    staffs : state.staffs,
+    departments : state.departments
+  }
+}
 class Main extends Component {
   constructor(props){
     super(props);
@@ -20,6 +27,9 @@ class Main extends Component {
       departments : DEPARTMENTS, 
       };
       this.updateState = this.updateState.bind(this);
+      this.state = {
+        staffs : this.props.staffs
+      }
   }
   // componentDidMount thực thi khi 1 component được render trên client side.
   componentDidMount() {
@@ -30,7 +40,7 @@ class Main extends Component {
       localStorage.setItem("Staffs", JSON.stringify(STAFFS));
     }
   }
-
+  //Cập nhật lại danh sách: sử dụng concat() để nối 2 mảng với nhau.
   updateState(staff) {
     const currentStaffs = this.state.staffs;
     this.setState({
@@ -72,4 +82,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(connect(mapStateToProps)(Main));
