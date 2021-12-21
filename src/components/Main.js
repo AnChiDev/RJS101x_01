@@ -18,12 +18,31 @@ class Main extends Component {
     this.state = {
       staffs : STAFFS,
       departments : DEPARTMENTS, 
-
       };
+      this.updateState = this.updateState.bind(this);
   }
+  // componentDidMount thực thi khi 1 component được render trên client side.
+  componentDidMount() {
+    const data = localStorage.getItem("Staffs");
+    if (data) {
+      this.setState({ staffs: JSON.parse(data) });
+    } else {
+      localStorage.setItem("Staffs", JSON.stringify(STAFFS));
+    }
+  }
+
+  updateState(staff) {
+    const currentStaffs = this.state.staffs;
+    this.setState({
+      staffs: currentStaffs.concat([staff]),
+    });
+    localStorage.setItem("Staffs", JSON.stringify(currentStaffs.concat([staff])));
+  }
+ 
   onStaffSelected(staffId) {
     this.setState({ staffSelected: staffId });
   }
+  
     render(){
       const StaffWithId = ({match})=>{
         return(
@@ -39,7 +58,8 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route path="/home" component={Home} />
-          <Route exact path="/StaffList" component={() =>  (<StaffList staffs={this.state.staffs} /> )} />
+          <Route exact path="/StaffList" component={() =>  (<StaffList staffs={this.state.staffs}
+          updateState={(newStaff) => this.updateState(newStaff)}/> )} />
           <Route path="/menu/:staffId" component={StaffWithId} />
           <Route exact path='/room' component={() => <Room rooms={this.state.departments} />} />
           <Route exact path='/salary' component={() => <Salary salary={this.state.staffs}/>} /> 

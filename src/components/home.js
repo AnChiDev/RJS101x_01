@@ -14,7 +14,7 @@ function Home (){
             <p>Tab Nhân viên, chúng ta có thể nhìn thấy toàn bộ nhân viên kèm hình ảnh.</p>                
             <img src="assets/images/tabStafflist.png" alt="DS toàn bộ NV "  width=" 70% " />
             <br/>
-            <p>Ngoài ra có thể tìm kiếm tên nhân viên :</p>
+            <p>Ngoài ra có thể tìm kiếm bằng tên nhân viên, thêm nhân viên mới :</p>
             <img src="assets/images/search.png" alt="tìm kiếm NV "  width=" 70% " />
             <br/>
             <br/>

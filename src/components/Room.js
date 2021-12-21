@@ -4,6 +4,7 @@ import {Card, CardTitle, CardText,BreadcrumbItem, Breadcrumb } from 'reactstrap'
 
 
 const Room = (props) => {
+    
     const rooms = props.rooms.map((room) => {
         return(
             <div key={room.id} className="col col-12 col-md-6 col-lg-4 mb-3">

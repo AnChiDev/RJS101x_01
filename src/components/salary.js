@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const basicSalary = 3000000;
 const overTimeSalary = 200000;
-//compare salary
+//so sánh lương và sắp xếp
 function compare(a, b) {
   const salaryA = a.salaryScale * basicSalary + a.overTime * overTimeSalary;
   const salaryB = b.salaryScale * basicSalary + b.overTime * overTimeSalary;
@@ -34,7 +34,7 @@ class Salary extends Component {
   }
 
   rendersalary(sort) {
-
+// Lương từ thấp đến cao
     if (sort === 1) {
       return this.props.salary.sort(compare).map((staff) => {
         return (
@@ -49,6 +49,7 @@ class Salary extends Component {
           </div>
         );
       });
+      //Lương từ cao đến thấp.
     } else if (sort === 2) {
       return this.props.salary.sort(compare).reverse().map((staff) => {
         return (
